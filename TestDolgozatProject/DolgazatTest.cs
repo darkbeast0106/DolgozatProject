@@ -1,6 +1,6 @@
 namespace TestDolgozatProject
 {
-    public class Tests
+    public class DolgazatTest
     {
         [SetUp]
         public void Setup()
