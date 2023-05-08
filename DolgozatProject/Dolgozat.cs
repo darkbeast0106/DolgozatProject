@@ -35,7 +35,17 @@
         {
             get
             {
-                throw new NotImplementedException();
+                int darab = 0;
+                foreach (var pont in pontok)
+                {
+                    if (pont > -1 && pont < 50)
+                    {
+                        darab++;
+                    }
+                }
+                return darab;
+                // LINQ -> Language INtegrated Query
+                //return pontok.Count(pont => pont > -1 && pont < 50);
             }
         }
 
