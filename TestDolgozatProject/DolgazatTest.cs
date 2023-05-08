@@ -100,5 +100,47 @@ namespace TestDolgozatProject
             dolgozat.PontFelvesz(100);
             Assert.IsFalse(dolgozat.MindenkiMegirta);
         }
+
+        [Test]
+        public void Bukas_Minimum()
+        {
+            Assert.AreEqual(0, dolgozat.Bukas);
+            dolgozat.PontFelvesz(0);
+            Assert.AreEqual(1, dolgozat.Bukas);
+        }
+        [Test]
+        public void Bukas_MinimumAlatt()
+        {
+            Assert.AreEqual(0, dolgozat.Bukas);
+            dolgozat.PontFelvesz(-1);
+            Assert.AreEqual(0, dolgozat.Bukas);
+        }
+        [Test]
+        public void Bukas_Maximum()
+        {
+            Assert.AreEqual(0, dolgozat.Bukas);
+            dolgozat.PontFelvesz(49);
+            Assert.AreEqual(1, dolgozat.Bukas);
+        }
+        [Test]
+        public void Bukas_MaximumFelett()
+        {
+            Assert.AreEqual(0, dolgozat.Bukas);
+            dolgozat.PontFelvesz(50);
+            Assert.AreEqual(0, dolgozat.Bukas);
+        }
+
+        [Test]
+        public void Bukas_TobbPontEsetenMegfeleloenSzamol()
+        {
+            Assert.AreEqual(0, dolgozat.Bukas);
+            dolgozat.PontFelvesz(75);
+            dolgozat.PontFelvesz(55);
+            dolgozat.PontFelvesz(45);
+            dolgozat.PontFelvesz(65);
+            dolgozat.PontFelvesz(25);
+            Assert.AreEqual(2, dolgozat.Bukas);
+        }
+
     }
 }
