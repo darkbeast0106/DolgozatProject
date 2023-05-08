@@ -5,19 +5,29 @@
         private List<int> pontok;
         public Dolgozat()
         {
-
+            pontok = new List<int>();
         }
 
         public void PontFelvesz(int x)
         {
-            throw new NotImplementedException();
+            if (x < -1 || x > 100)
+            {
+                throw new ArgumentException("A pontszámnak -1 és 100 közé kell esnie",
+                    nameof(x));
+            }
+            pontok.Add(x);
         }
 
         public bool MindenkiMegirta
         {
             get
             {
-                throw new NotImplementedException();
+                int index = 0;
+                while (index < pontok.Count && pontok[index] != -1) 
+                {
+                    index++;
+                }
+                return index == pontok.Count;
             }
         }
 
